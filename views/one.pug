@@ -1,0 +1,25 @@
+extends layout
+
+block metaTwitter
+  meta(name="twitter:image", content="http://paintingthecave.com/images/neural/"+data.id+".jpg")
+
+block content
+  div()
+    section(class="headerimg", style="margin-bottom:50px")
+      div(class="container")
+        h1(id="bannerHeading") Cave Painting
+    section(class="no-padding")
+      div(style="height:40px; clear:both")
+      div(class="container")
+        div(class="col-md-6")
+          div
+            img(src="../images/neural/"+data.tid+".jpg", style="width: 100%; max-width: 500px;")
+          div(style="height:40px; clear:both")
+        div(class="col-md-6")
+          h2 Originals
+          p <a href="https://twitter.com/#{data.tweet.user.screenname}">@#{data.tweet.user.screenname}</a> on #{timeAgo}
+          p
+            div(style="height: 200px; width:200px; overflow:hidden; float:left")
+              img(src="../images/twitter/"+data.tid+".jpg", class="fitimg-thumb")
+            div(style="height: 200px; width:200px; overflow:hidden; float:left")
+              img(src="../images/"+data.style, class="fitimg-thumb")

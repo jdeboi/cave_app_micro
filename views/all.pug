@@ -1,0 +1,36 @@
+extends layout
+
+block metaTwitter
+  meta(name="twitter:image", content="/img/caveog.png")
+
+
+block content
+  div
+    section(class="headerimg", style="margin-bottom:50px")
+      div(class="container")
+        h1(id="bannerHeading") Cave Paintings
+    section(class="no-padding", id="portfolio")
+      div(class="container")
+        p Page #{page}
+          span &nbsp;
+          - if (page > 1)
+            - var prevpage = page -2;
+            a(href="/all/"+prevpage)
+              button.btn.btn-default.active previous
+            
+          - if (data.length == 12)
+            a(href="/all/"+page)
+              button.btn.btn-default.active next
+
+      div(class="container-fluid")
+
+        div(class="row no-gutter popup-gallery")
+          each entry, index in data
+            div(class="col-lg-4 col-sm-6")
+              a(href="../one/"+entry.tid, class="portfolio-box")
+                img(src="../images/neural/"+entry.tid+".jpg", class="fitimg", alt="")
+                div(class="portfolio-box-caption")
+                  div(class="portfolio-box-caption-content")
+                    div(class="project-category text-faded") #{timeAgo[index]}
+                    div(class="project-name") @#{entry.tweet.user.screenname}
+        

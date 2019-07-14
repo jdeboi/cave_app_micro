@@ -1,0 +1,9 @@
+extends layout
+
+block metaTwitter
+  meta(name="twitter:image", content="http://paintingthecave.com/img/caveog.png")
+
+block content
+  h1= message
+  h2= error.status
+  pre #{error.stack}

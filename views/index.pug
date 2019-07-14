@@ -1,0 +1,32 @@
+extends layout
+
+block metaTwitter
+  meta(name="twitter:image", content="/img/caveog.png")
+
+block content
+  include content.html
+  section(style="background-color: black")
+    div(class="container")
+      div(class="embed-responsive embed-responsive-16by9")
+        iframe(width="560" height="315" src="https://www.youtube.com/embed/Je10sqC7Q_c" frameborder="0" allowfullscreen)
+  include about.html
+
+  section(class="no-padding", id="gallery")
+    div(class="container text-center", style="padding-top:50px")
+      h2 Cave Paintings
+      a(href="/all/0") See more!
+      hr
+    div(class="container-fluid")
+
+      div(class="row no-gutter popup-gallery")
+        each entry, index in data
+          div(class="col-lg-4 col-sm-6")
+            a(href="../one/"+entry.tid, class="portfolio-box")
+              img(src="../images/neural/"+entry.tid+".jpg", class="fitimg", alt="")
+              div(class="portfolio-box-caption")
+                div(class="portfolio-box-caption-content")
+                  div(class="project-category text-faded") #{timeAgo[index]}
+                  div(class="project-name") @#{entry.tweet.user.screenname}
+
+
+  include contact.html
